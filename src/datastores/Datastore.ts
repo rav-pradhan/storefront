@@ -19,10 +19,10 @@ export default class Datastore implements IStore {
   }
 
   public getAll(): any {
-    let objectStore: { [key: string]: any } = {}
+    let objectStore: { [key: string]: any } = {};
     Object.entries(this.store).forEach((entry) => {
       const [key, value] = entry;
-      objectStore[key] = this.getTypedValue(value)
+      objectStore[key] = this.getTypedValue(value);
     });
     return objectStore;
   }

@@ -1,4 +1,4 @@
-import Datastore from './Datastore'
+import Datastore from "./Datastore";
 
 describe("Datastores interactions", () => {
   describe("Datastore", () => {
@@ -16,48 +16,48 @@ describe("Datastores interactions", () => {
       const gotString = localStore.get("greeting");
       expect(gotString).toEqual("hello");
 
-      const gotNumber = localStore.get("age")
-      expect(gotNumber).toEqual(25)
+      const gotNumber = localStore.get("age");
+      expect(gotNumber).toEqual(25);
 
-      const gotBoolean = localStore.get("isSubscribed")
-      expect(gotBoolean).toBeFalsy()
+      const gotBoolean = localStore.get("isSubscribed");
+      expect(gotBoolean).toBeFalsy();
     });
     test("a key/value pair can be removed from the datastore", () => {
-      const localStore: Datastore = new Datastore(localStorage)
-      localStore.set("isCold", true)
-      localStore.remove("isCold")
-      expect(localStore.get("isCold")).toEqual(null)
-    })
+      const localStore: Datastore = new Datastore(localStorage);
+      localStore.set("isCold", true);
+      localStore.remove("isCold");
+      expect(localStore.get("isCold")).toEqual(null);
+    });
     test("a datastore can be cleared entirely", () => {
-      const sessionStore: Datastore = new Datastore(sessionStorage)
-      sessionStore.set("age", 25)
-      sessionStore.set("name", "Tony")
-      sessionStore.clear()
-      expect(sessionStore.get("age")).toEqual(null)
-      expect(sessionStore.get("name")).toEqual(null)
-    })
+      const sessionStore: Datastore = new Datastore(sessionStorage);
+      sessionStore.set("age", 25);
+      sessionStore.set("name", "Tony");
+      sessionStore.clear();
+      expect(sessionStore.get("age")).toEqual(null);
+      expect(sessionStore.get("name")).toEqual(null);
+    });
     test("a datastore can get all key value pairs and return it as an object", () => {
-      const sessionStore: Datastore = new Datastore(sessionStorage)
+      const sessionStore: Datastore = new Datastore(sessionStorage);
 
       const address = {
         street: "ABC St.",
         county: "County",
         country: "Country",
-        postcode: "1234 ABC"
-      }
-      sessionStore.set("age", 25)
-      sessionStore.set("name", "Tony")
-      sessionStore.set("address", address)
-      sessionStore.set("isSubscribed", false)
+        postcode: "1234 ABC",
+      };
+      sessionStore.set("age", 25);
+      sessionStore.set("name", "Tony");
+      sessionStore.set("address", address);
+      sessionStore.set("isSubscribed", false);
 
       const expectedOutput = {
         age: 25,
         name: "Tony",
         address: address,
-        isSubscribed: false
-      }
+        isSubscribed: false,
+      };
 
-      expect(sessionStore.getAll()).toEqual(expectedOutput)
-    })
+      expect(sessionStore.getAll()).toEqual(expectedOutput);
+    });
   });
 });
