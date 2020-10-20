@@ -1,4 +1,3 @@
-import { parse } from "@babel/core";
 import IStore from "./IStore";
 
 export default class Datastore implements IStore {
