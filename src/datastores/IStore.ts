@@ -1,7 +1,7 @@
 export default interface IStore {
   set(key: string, value: any): any;
   get(key: string): any;
-  getAll(): any;
+  getAll(): { [key: string]: any };
   remove(key: string): void;
   clear(): void;
 }

@@ -17,7 +17,7 @@ export default class Datastore implements IStore {
     return this.getTypedValue(value);
   }
 
-  public getAll(): any {
+  public getAll(): { [key: string]: any } {
     let objectStore: { [key: string]: any } = {};
     Object.entries(this.store).forEach((entry) => {
       const [key, value] = entry;
