@@ -33,7 +33,6 @@ describe("Datastores interactions", () => {
       sessionStore.set("age", 25)
       sessionStore.set("name", "Tony")
       sessionStore.clear()
-      console.log(sessionStore)
       expect(sessionStore.get("age")).toEqual(null)
       expect(sessionStore.get("name")).toEqual(null)
     })
