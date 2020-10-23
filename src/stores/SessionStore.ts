@@ -1,11 +1,9 @@
 import IStore from "./IStore";
+import { StoreTypes } from "./StoreTypes";
 
-export default class Datastore implements IStore {
-  private store: Storage;
-
-  constructor(datastore: Storage) {
-    this.store = datastore;
-  }
+export default class SessionStore implements IStore {
+  private store: Storage = sessionStorage;
+  public type: string = StoreTypes.Session;
 
   public set(key: string, value: any) {
     const parsedValue = this.parseValueToSet(value);
